@@ -1,8 +1,22 @@
 # FMK Intertrade — Corporate Homepage Implementation
 
-**Deliverable:** `FMK Homepage.dc.html` — a single, self-contained Design Component (streaming HTML) that opens directly in the browser.
+> **Production implementation (2026-07-12):** the design below has been built as a **Next.js (App Router) + TypeScript + Tailwind CSS** application at the repository root. Run it with `npm install && npm run dev` and see the top-level [`README.md`](../../README.md) for structure, scripts and the placeholder/backend checklists. The original design prototype (`FMK Homepage.dc.html`) remains in this `project/` folder as the visual reference. The sections below document the design decisions, verified data and placeholders — all of which carried over 1:1 into the Next.js build.
+
+**Design source:** `project/FMK Homepage.dc.html` — a single, self-contained Design Component (streaming HTML).
 **Positioning:** The Infrastructure Partner — *Building Sustainable Growth for Agriculture and Livestock*.
-**Languages:** English (default) + Thai, switchable via the TH / EN control in the top bar and the mobile menu.
+**Languages:** English (default) + Thai. In the Next.js build these are `/en` and `/th` routes with `hreflang` alternates; language is switched from the top bar and the mobile menu.
+
+## Production stack & mapping
+
+| Prototype concept | Next.js implementation |
+|---|---|
+| Bilingual `T` dictionary | `lib/i18n/en.ts` + `th.ts` (shape enforced by a shared `Dictionary` type) |
+| Inline design tokens | `tailwind.config.ts` theme + `app/globals.css` |
+| One section per block | `components/home/*` and `components/layout/*` |
+| Modal + validated form | `components/forms/ConsultationModal` + `ConsultationForm` (React Hook Form + Zod) |
+| `showPartnersSection = false` | `SHOW_PARTNERS = false` in `app/[lang]/page.tsx` |
+| Verified facts | `data/company.ts` |
+| SEO head tags (recommended) | Implemented: metadata in `app/[lang]/layout.tsx`, JSON-LD in `components/seo/StructuredData.tsx`, `robots.ts` / `sitemap.ts` / `manifest.ts` |
 
 ---
 
