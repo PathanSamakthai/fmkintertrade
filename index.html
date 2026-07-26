@@ -284,11 +284,11 @@ function renderTopBar(t){
 function renderHeader(t){
   var navD = t.nav.map(function(l){ return '<a href="'+l.href+'" class="navlink">'+esc(l.label)+'</a>'; }).join('');
   return '<header class="site-header" id="siteHeader"><div class="bar">'+
-    '<a href="#top" aria-label="FMK Intertrade home" style="display:flex;align-items:center;gap:12px;flex-shrink:0">'+
+    '<a href="#top" aria-label="FMK Intertrade home" style="display:flex;align-items:center;gap:12px;min-width:0">'+
       '<img src="logo-monogram.png" alt="FMK Intertrade" height="40" style="height:40px;width:auto;display:block;flex-shrink:0">'+
-      '<span style="display:flex;flex-direction:column;line-height:1.1">'+
-        '<span style="font-weight:800;font-size:16px;letter-spacing:.04em;color:#1A1A1A">FMK INTERTRADE</span>'+
-        '<span style="font-size:11px;color:#68736E;letter-spacing:.03em">'+esc(t.brandDescriptor)+'</span>'+
+      '<span style="display:flex;flex-direction:column;line-height:1.1;min-width:0;overflow:hidden">'+
+        '<span style="font-weight:800;font-size:16px;letter-spacing:.04em;color:#1A1A1A;white-space:nowrap">FMK INTERTRADE</span>'+
+        '<span data-hide-mobile="1" style="font-size:11px;color:#68736E;letter-spacing:.03em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">'+esc(t.brandDescriptor)+'</span>'+
       '</span>'+
     '</a>'+
     '<nav aria-label="Primary" data-nav-desktop="1" style="display:flex;align-items:center;gap:4px;margin-left:auto">'+navD+'</nav>'+
